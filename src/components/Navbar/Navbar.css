@@ -1,0 +1,35 @@
+.main {
+    height: 100vh;
+}
+
+
+.ant-row-rtl #components-layout-demo-top-side-2 .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+
+.site-layout-background {
+    border-radius: 16px;
+  background: #fff;
+
+}
+
+.ant-layout-header {
+    background-color: pink;
+}
+
+#navbar-header {
+  background-color: #fff;
+  box-shadow: 5px 10px red;
+  height: 70px;
+  border: 5px red;
+}
+
+#menu-header {
+  background-color: #fff;
+  height: 70px;
+}
+
+#header-logo {
+  height: 90%;
+}
