@@ -8,25 +8,21 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 
 const columns = [
-    { field: "insName", headerName: "Instructor Name", width: 240 },
-    { field: "date", headerName: "Exercise Date", width: 200 },
+    { field: "assName", headerName: "Assignment Name", width: 240 },
+    { field: "courseName", headerName: "Course Name", width: 240 },
+    { field: "dueDate", headerName: "Due Date", width: 200 },
     {
-        field: "link",
-        headerName: "Exercise Link",
+        field: "desc",
+        headerName: "Description",
+        width: 300,
+      },
+    {
+        field: "files",
+        headerName: "Attached Files",
         width: 240,
         renderCell: (params) => {
-          return <a>Go to exercise</a>; 
+          return <a>Files</a>; 
         },
-    },
-    {
-      field: "grade",
-      headerName: "Grade",
-      width: 150,
-    },
-    {
-      field: "rate",
-      headerName: "Rate",
-      width: 130,
     },
   ];
 

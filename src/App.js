@@ -18,6 +18,10 @@ import TeacherDashboard from './routes/TeacherRoutes/Dashboard/TeacherDashboard'
 import TeacherClasses from './routes/TeacherRoutes/Classes/TeacherClasses';
 import TeacherAssignments from './routes/TeacherRoutes/Assignments/TeacherAssignments';
 
+import NativeDashboard from './routes/NativeRoutes/Dashboard/NativeDashboard';
+import NativeExercises from './routes/NativeRoutes/Exercises/NativeExercises';
+import NativeRequests from './routes/NativeRoutes/Requests/NativeRequests';
+
 function App() {
   return (
     <Routes>
@@ -47,10 +51,10 @@ function App() {
 
       <Route element={<RequireAuth allowedRoles={NATIVE}/>} >
         <Route path="/native" element={<Layout userType={NATIVE} />}>
-          {/* <Route path="" element={<UserDashboard />} />
-          <Route path="exercises" element={<UserRes />} />
-          <Route path="requests" element={<UserCourses />} />
-          <Route path="blog" element={<StudentProfile />} /> */}
+          <Route path="" element={<NativeDashboard />} />
+          <Route path="exercises" element={<NativeExercises />} />
+          <Route path="requests" element={<NativeRequests />} />
+          {/* <Route path="blog" element={<StudentProfile />} /> */}
         </Route>
       </Route>
 
