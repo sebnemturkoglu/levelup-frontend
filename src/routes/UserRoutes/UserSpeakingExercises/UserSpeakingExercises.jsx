@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, navigate } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import {useNavigate} from 'react-router-dom'
 import { DataGrid } from "@mui/x-data-grid";
 import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
@@ -33,6 +34,7 @@ const columns = [
 const UserSpeakingExercises = () => {
 
 //   const dispatch = useDispatch();
+const navigate = useNavigate();
 
 //   const speakingExercises = useSelector((state) => state.speakingExercises);
   const [tab, setTab] = useState('all');
@@ -53,7 +55,7 @@ const handleTabChange = (event, newValue) => {
       <Box sx={{ width: "100%", bgcolor: "#fff", paddingTop:'24px'}}>
         <Box display={'flex'} flexDirection={'row'} justifyContent={'space-between'} >
         <Typography variant="h5" color={'secondary'} sx={{marginLeft:'24px'}} >Speaking Exercises</Typography>
-        <Button variant="contained" color="secondary" sx={{marginRight:'14px'}} >Request New Exercise</Button>
+        <Button variant="contained" color="secondary" sx={{marginRight:'14px'}} onClick={() => {navigate('/user/speaking-lessons/new-exercise')}}>Request New Exercise</Button>
         </Box>
         <Tabs
           value={tab}

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ClassCard from "./ClassCard";
+import NativeCard from "./NativeCard";
 import { ListSubheader, List, Box, Typography, Button, Grid } from '@mui/material'
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -34,8 +34,10 @@ const levels = [
   },
 ];
 
-const ClassList = (props) => {
-  //   const [open, setOpen] = React.useState(true);
+
+
+const NativeList = (props) => {
+    
   //   const dispatch = useDispatch();
 
   const facilityData = [1, 2, 3, 4];
@@ -51,6 +53,7 @@ const ClassList = (props) => {
     setLevelOption(event.target.value);
   };
 
+ 
   return (
     <Box
       sx={{
@@ -107,9 +110,9 @@ const ClassList = (props) => {
         aria-labelledby="nested-list-subheader"
 
       >
-        {facilityData.map((center) => {
+        {props.natives.map((item) => {
           return (
-            <ClassCard />
+            <NativeCard key={item.id} native={item} onClick={() => {props.select(item)}}/>
           );
         })}
       </List>
@@ -117,4 +120,4 @@ const ClassList = (props) => {
   );
 };
 
-export default ClassList;
+export default NativeList;

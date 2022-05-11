@@ -15,6 +15,7 @@ import UserClasses from './routes/UserRoutes/MyClasses/UserClasses';
 import UserFindClasses from './routes/UserRoutes/FindClasses/UserFindClasses';
 import UserSpeakingExercises from './routes/UserRoutes/UserSpeakingExercises/UserSpeakingExercises';
 import UserGrades from './routes/UserRoutes/Grades/UserGrades';
+import NewSpeakingExercise from './routes/UserRoutes/NewSpeakingExercise/NewSpeakingExercise';
 
 import TeacherDashboard from './routes/TeacherRoutes/Dashboard/TeacherDashboard';
 import TeacherClasses from './routes/TeacherRoutes/Classes/TeacherClasses';
@@ -38,6 +39,7 @@ function App() {
           <Route path="my-classes" element={<UserClasses />} />
           <Route path="find-classes" element={<UserFindClasses />} />
           <Route path="speaking-lessons" element={<UserSpeakingExercises />} />
+          <Route path="/user/speaking-lessons/new-exercise" element={<NewSpeakingExercise />} />
           <Route path="grades" element={<UserGrades />} />
           <Route path="blog" element={<Blog />} />
         </Route>
