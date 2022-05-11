@@ -30,7 +30,7 @@ const columns = [
     },
   ];
 
-const UserSpeakingExercises = () => {
+const TeacherAssignments = () => {
 
 //   const dispatch = useDispatch();
 
@@ -50,21 +50,11 @@ const handleTabChange = (event, newValue) => {
 
   return (
     <div>
-      <Box sx={{ width: "100%", bgcolor: "#fff", paddingTop:'24px'}}>
+      <Box sx={{ width: "100%", bgcolor: "#fff", paddingTop:'24px', borderRadius:'20px'}}>
         <Box display={'flex'} flexDirection={'row'} justifyContent={'space-between'} >
-        <Typography variant="h5" color={'secondary'} sx={{marginLeft:'24px'}} >Speaking Exercises</Typography>
-        <Button variant="contained" color="secondary" sx={{marginRight:'14px'}} >Request New Exercise</Button>
+        <Typography variant="h5" color={'secondary'} sx={{marginLeft:'24px'}} >Assignments</Typography>
+        <Button variant="contained" color="secondary" sx={{marginRight:'14px'}} >Assign Homework</Button>
         </Box>
-        <Tabs
-          value={tab}
-          sx={{marginLeft:'24px'}}
-          indicatorColor="primary"
-          onChange={handleTabChange}
-        >
-          <Tab value="all" label="All" />
-          <Tab value="upcoming" label="Upcoming" />
-          <Tab value="reqs" label="Requests" />
-        </Tabs>
         <div style={{ height: "70vh", width: "100%" }}>
           <DataGrid
             rows={rows}
@@ -74,9 +64,10 @@ const handleTabChange = (event, newValue) => {
             disableSelectionOnClick
           />
         </div>
+        
       </Box>
     </div>
   );
 };
 
-export default UserSpeakingExercises;
+export default TeacherAssignments;

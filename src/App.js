@@ -14,6 +14,10 @@ import UserFindClasses from './routes/UserRoutes/FindClasses/UserFindClasses';
 import UserSpeakingExercises from './routes/UserRoutes/UserSpeakingExercises/UserSpeakingExercises';
 import UserGrades from './routes/UserRoutes/Grades/UserGrades';
 
+import TeacherDashboard from './routes/TeacherRoutes/Dashboard/TeacherDashboard';
+import TeacherClasses from './routes/TeacherRoutes/Classes/TeacherClasses';
+import TeacherAssignments from './routes/TeacherRoutes/Assignments/TeacherAssignments';
+
 function App() {
   return (
     <Routes>
@@ -33,10 +37,11 @@ function App() {
 
       <Route element={<RequireAuth allowedRoles={TEACHER}/>} >
         <Route path="/teacher" element={<Layout userType={TEACHER} />}>
-          {/* <Route path="" element={<UserDashboard />} />
-          <Route path="classes" element={<UserRes />} />
-          <Route path="assignments" element={<UserCourses />} />
-          <Route path="blog" element={<StudentProfile />} /> */}
+          <Route path="" element={<TeacherDashboard />} />
+          <Route path="classes" element={<TeacherClasses />} />
+          <Route path="assignments" element={<TeacherAssignments />} />
+          {/* <Route path="/teacher/assignments/grade" element={<TeacherDashboard />} /> */}
+          {/* <Route path="blog" element={<StudentProfile />} /> */}
         </Route>
       </Route>
 
