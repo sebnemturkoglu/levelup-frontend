@@ -6,6 +6,7 @@ import { Button } from "@mui/material";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
+import AssignHomeworkModal from "./AssignHomeworkModal";
 
 const columns = [
     { field: "assName", headerName: "Assignment Name", width: 240 },
@@ -43,13 +44,16 @@ const handleTabChange = (event, newValue) => {
     setTab(newValue);
   };
 
+  const [modalOpen, setOpen] = React.useState(false);
+  const handleOpenModal = () => setOpen(true);
+  const handleCloseModal = () => setOpen(false);
 
   return (
     <div>
       <Box sx={{ width: "100%", bgcolor: "#fff", paddingTop:'24px', borderRadius:'20px'}}>
-        <Box display={'flex'} flexDirection={'row'} justifyContent={'space-between'} >
+        <Box display={'flex'} flexDirection={'row'} justifyContent={'space-between'} mb={2} >
         <Typography variant="h5" color={'secondary'} sx={{marginLeft:'24px'}} >Assignments</Typography>
-        <Button variant="contained" color="secondary" sx={{marginRight:'14px'}} >Assign Homework</Button>
+        <Button variant="contained" color="secondary" sx={{marginRight:'14px'}} onClick={handleOpenModal} >Assign Homework</Button>
         </Box>
         <div style={{ height: "70vh", width: "100%" }}>
           <DataGrid
@@ -60,8 +64,8 @@ const handleTabChange = (event, newValue) => {
             disableSelectionOnClick
           />
         </div>
-        
       </Box>
+      <AssignHomeworkModal open={modalOpen} handleOpen={handleOpenModal}  handleClose={handleCloseModal}/>
     </div>
   );
 };

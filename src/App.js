@@ -8,6 +8,8 @@ import Login from "./routes/Login/Login";
 import { USER, TEACHER, NATIVE, ADMIN } from './constants/constants';
 
 // pages
+import Blog from './routes/Blog/Blog';
+
 import UserDashboard from './routes/UserRoutes/Dashboard/UserDashboard';
 import UserClasses from './routes/UserRoutes/MyClasses/UserClasses';
 import UserFindClasses from './routes/UserRoutes/FindClasses/UserFindClasses';
@@ -37,7 +39,7 @@ function App() {
           <Route path="find-classes" element={<UserFindClasses />} />
           <Route path="speaking-lessons" element={<UserSpeakingExercises />} />
           <Route path="grades" element={<UserGrades />} />
-          {/* <Route path="blog" element={<InstructorProfile />} /> */}
+          <Route path="blog" element={<Blog />} />
         </Route>
       </Route>
 
@@ -47,7 +49,7 @@ function App() {
           <Route path="classes" element={<TeacherClasses />} />
           <Route path="assignments" element={<TeacherAssignments />} />
           {/* <Route path="/teacher/assignments/grade" element={<TeacherDashboard />} /> */}
-          {/* <Route path="blog" element={<StudentProfile />} /> */}
+          <Route path="blog" element={<Blog />} />
         </Route>
       </Route>
 
@@ -56,7 +58,7 @@ function App() {
           <Route path="" element={<NativeDashboard />} />
           <Route path="exercises" element={<NativeExercises />} />
           <Route path="requests" element={<NativeRequests />} />
-          {/* <Route path="blog" element={<StudentProfile />} /> */}
+          <Route path="blog" element={<Blog />} />
         </Route>
       </Route>
 
