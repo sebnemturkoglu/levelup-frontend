@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DataCard from "./DataCard";
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography, Grid, Button } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -108,6 +108,10 @@ const AdminDashboard = () => {
               ))}
             </Select>
           </FormControl>
+          <FormControl sx={{ m: 1, minWidth: 70 }} size="small">
+          <Button variant="contained" sx={{color:'#fff'}}>Create Report</Button>
+          </FormControl>
+          
         </Box>
 
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
