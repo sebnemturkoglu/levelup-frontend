@@ -9,6 +9,7 @@ import { USER, TEACHER, NATIVE, ADMIN } from './constants/constants';
 
 // pages
 import Blog from './routes/Blog/Blog';
+import BlogPost from './routes/Blog/BlogPost';
 
 import UserDashboard from './routes/UserRoutes/Dashboard/UserDashboard';
 import UserClasses from './routes/UserRoutes/MyClasses/UserClasses';
@@ -42,6 +43,7 @@ function App() {
           <Route path="/user/speaking-lessons/new-exercise" element={<NewSpeakingExercise />} />
           <Route path="grades" element={<UserGrades />} />
           <Route path="blog" element={<Blog />} />
+          <Route path="blog/post"  element={<BlogPost />} />
         </Route>
       </Route>
 
