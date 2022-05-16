@@ -6,8 +6,11 @@ import {
     Link,
     Checkbox,
   } from "@mui/material";
+  import { useDispatch } from "react-redux";
   
   const LoginForm = (props) => {
+    const dispatch = useDispatch();
+
     return (
       <Grid sx={{ width: "100%" }} py={10} px={3}>
         <Typography variant="h4" color={"secondary"} sx={{ fontWeight: "500" }}>

@@ -5,6 +5,8 @@ export const NATIVE = "NATIVE";
 export const ADMIN = "ADMIN";
 
 // action types
+export const GET_ALL_HOMEWORKS = 'GET_ALL_HOMEWORKS';
+export const CREATE_HOMEWORK = 'CREATE_HOMEWORK';
 
 //MUI theme
 export const themeSettings = {

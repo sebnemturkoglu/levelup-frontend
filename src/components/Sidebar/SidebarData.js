@@ -91,5 +91,10 @@ export const AdminSidebarData = [
     title: "Dashboard",
     path: "/admin/",
     icon: <AiFillHome />,
+  },
+  {
+    title: "Classes",
+    path: "/admin/classes",
+    icon: <FaBookOpen />,
   }
 ];

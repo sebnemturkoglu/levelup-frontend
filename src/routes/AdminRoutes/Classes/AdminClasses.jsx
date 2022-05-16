@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
@@ -6,29 +7,40 @@ import { Button } from "@mui/material";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
-import AssignHomeworkModal from "./AssignHomeworkModal";
+import AddClassModal from "./AddClassModal";
 import { getAllHomeworks } from "../../../actions/homeworks";
 
 const columns = [
-    { field: "assName", headerName: "Assignment Name", width: 240 },
-    { field: "courseName", headerName: "Course Name", width: 240 },
-    { field: "dueDate", headerName: "Due Date", width: 200 },
+    { field: "name", headerName: "Name", width: 200 },
+    { field: "language", headerName: "Language", width: 170 },
     {
-        field: "desc",
-        headerName: "Description",
-        width: 300,
-      },
+      field: "level",
+      headerName: "Level",
+      width: 150,
+    },
     {
-        field: "files",
-        headerName: "Attached Files",
-        width: 240,
-        renderCell: (params) => {
-          return <a>Files</a>; 
-        },
+      field: "courseStart",
+      headerName: "Course Start",
+      width: 130,
+    },
+    {
+      field: "courseEnd",
+      headerName: "Course End",
+      width: 130,
+    },
+    {
+      field: "capacity",
+      headerName: "Capacity",
+      width: 120,
+    },
+    {
+      field: "enrollment",
+      headerName: "Enrollment",
+      width: 120,
     },
   ];
 
-const TeacherAssignments = () => {
+const AdminClasses = () => {
 
   const dispatch = useDispatch();
   const homeworks = useSelector((state) => state.homeworks);
@@ -59,8 +71,8 @@ const handleTabChange = (event, newValue) => {
     <div>
       <Box sx={{ width: "100%", bgcolor: "#fff", paddingTop:'24px', borderRadius:'20px'}}>
         <Box display={'flex'} flexDirection={'row'} justifyContent={'space-between'} mb={2} >
-        <Typography variant="h5" color={'secondary'} sx={{marginLeft:'24px'}} >Assignments</Typography>
-        <Button variant="contained" color="secondary" sx={{marginRight:'14px'}} onClick={handleOpenModal} >Assign Homework</Button>
+        <Typography variant="h5" color={'secondary'} sx={{marginLeft:'24px'}} >All Classes</Typography>
+        <Button variant="contained" color="secondary" sx={{marginRight:'14px'}} onClick={handleOpenModal} >Add Class</Button>
         </Box>
         <div style={{ height: "70vh", width: "100%" }}>
           <DataGrid
@@ -72,9 +84,9 @@ const handleTabChange = (event, newValue) => {
           />
         </div>
       </Box>
-      <AssignHomeworkModal open={modalOpen} handleOpen={handleOpenModal}  handleClose={handleCloseModal}/>
+      <AddClassModal open={modalOpen} handleOpen={handleOpenModal}  handleClose={handleCloseModal}/>
     </div>
   );
 };
 
-export default TeacherAssignments;
+export default AdminClasses;

@@ -27,6 +27,7 @@ import NativeExercises from './routes/NativeRoutes/Exercises/NativeExercises';
 import NativeRequests from './routes/NativeRoutes/Requests/NativeRequests';
 
 import AdminDashboard from './routes/AdminRoutes/Dashboard/AdminDashboard';
+import AdminClasses from './routes/AdminRoutes/Classes/AdminClasses';
 
 function App() {
   return (
@@ -69,6 +70,7 @@ function App() {
       <Route element={<RequireAuth allowedRoles={ADMIN}/>} >
         <Route path="/admin" element={<Layout userType={ADMIN} />}>
           <Route path="" element={<AdminDashboard />}></Route>
+          <Route path="classes" element={<AdminClasses />} />
         </Route>
       </Route>
     </Routes>

@@ -8,24 +8,26 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import { createTheme, ThemeProvider } from '@mui/material';
 import { themeSettings } from './constants/constants';
+import homeworkReducer from './reducers/homeworks';
 
 const theme = createTheme(themeSettings);
 
-// const store = configureStore({
-//   reducer: {
-//   },
-// });
+const store = configureStore({
+  reducer: {
+    homeworks: homeworkReducer,
+  },
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <Provider store={store}> */}
+    <Provider store={store}>
       <BrowserRouter>
         <ThemeProvider theme={theme}>
           <App />
         </ThemeProvider>
       </BrowserRouter>
-    {/* </Provider> */}
+    </Provider>
   </React.StrictMode>,
 );
 

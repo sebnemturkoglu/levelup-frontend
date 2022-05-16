@@ -18,7 +18,7 @@ const Input = styled("input")({
   display: "none",
 });
 
-export default function DialogSelect(props) {
+export default function AddClassModal(props) {
   const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
   const [age, setAge] = React.useState("");
@@ -68,7 +68,7 @@ export default function DialogSelect(props) {
           },
         }}
       >
-        <DialogTitle>New Assignment</DialogTitle>
+        <DialogTitle>New Class</DialogTitle>
         <DialogContent>
           <Box component="form" sx={{ display: "flex", flexWrap: "wrap" }}>
             <Box
