@@ -12,6 +12,16 @@ import Select from "@mui/material/Select";
 import { TextField, Stack } from "@mui/material";
 import styled from "@emotion/styled";
 import { createHomework } from "../../../actions/homeworks";
+import { LEVELS } from "../../../constants/constants";
+import {
+  Typography,
+  Grid,
+  Link,
+  MenuItem,
+} from "@mui/material";
+import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { useDispatch } from "react-redux";
 
 const Input = styled("input")({
@@ -21,6 +31,9 @@ const Input = styled("input")({
 export default function AddClassModal(props) {
   const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
+  const [level, setLevel] = React.useState();
+  const [startDate, setStartDate] = React.useState();
+  const [endDate, setEndDate] = React.useState();
   const [age, setAge] = React.useState("");
 
   const [homeworkData, setHomeworkData ] = React.useState({
@@ -31,6 +44,16 @@ export default function AddClassModal(props) {
     grade: null,
     class: null,
   });
+
+  const handleStartDate = (newValue) => {
+    setStartDate(newValue);
+    // setUserData({ ...userData, date_birth: newValue.toISOString().split('T')[0] });
+  };
+
+  const handleEndDate = (newValue) => {
+    setEndDate(newValue);
+    // setUserData({ ...userData, date_birth: newValue.toISOString().split('T')[0] });
+  };
 
 
   const handleFormOnChange = (event) => {
@@ -54,6 +77,11 @@ export default function AddClassModal(props) {
       dispatch(createHomework(homeworkData));  
     }
   }
+
+  const handleLevel = (event) => {
+    setLevel(event.target.value);
+    // handleFormOnChange(event);
+  };
 
   return (
     <div>
@@ -116,11 +144,53 @@ export default function AddClassModal(props) {
               </FormControl>
             </Box>
             <FormControl sx={{ m: 1, width: "100%" }}>
-              <TextField fullWidth label="Assignment Name" name='name' onChange={handleFormOnChange} required={true}/>
+              <TextField fullWidth label="Course Name" name='name' onChange={handleFormOnChange} required={true}/>
             </FormControl>
             <FormControl sx={{ m: 1, width: "100%" }}>
               <TextField id="outlined-textarea" label="Description" name='description' multiline onChange={handleFormOnChange} required={true}/>
             </FormControl>
+            <FormControl sx={{ m: 1, width: "100%" }}>
+              <TextField id="outlined-textarea" label="Capacity" name='description' type={'number'}  onChange={handleFormOnChange} required={true}/>
+            </FormControl>
+            <FormControl sx={{ m: 1, width: "100%" }}>
+              <TextField id="outlined-textarea" label="Duration" name='description' type={'number'}  onChange={handleFormOnChange} required={true}/>
+            </FormControl>
+            <Grid container>
+          <Grid item xs={6}>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <DesktopDatePicker
+            
+              label="Start date"
+              inputFormat="MM/dd/yyyy"
+              value={startDate}
+              onChange={handleStartDate}
+              renderInput={(params) => <TextField {...params} sx={{ width: "98%", left: 0 }} margin="dense" required={true}/> }
+            />
+          </LocalizationProvider>
+          </Grid>
+          <Grid item xs={6}>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <DesktopDatePicker
+            
+              label="End date"
+              inputFormat="MM/dd/yyyy"
+              value={endDate}
+              onChange={setEndDate}
+              renderInput={(params) => <TextField {...params} sx={{ width: "98%", left: 0 }} margin="dense" required={true}/> }
+            />
+          </LocalizationProvider>
+          </Grid>
+        </Grid>
+        <FormControl sx={{ m: 1, minWidth: 200, width: "100%" }} size="medium">
+          <InputLabel>Choose Level</InputLabel>
+          <Select value={level} name="userType" onChange={handleLevel}>
+            {LEVELS.map((item, index) => (
+              <MenuItem key={index} value={item.value}>
+                <Typography>{item.name}</Typography>
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
             <FormControl sx={{ m: 1, width: "100%" }}>
               <Stack direction="row" alignItems="center" spacing={2}>
                 <label htmlFor="contained-button-file">

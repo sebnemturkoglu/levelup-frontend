@@ -27,7 +27,18 @@ export const themeSettings = {
 };
 
 // arrays
-export const LANGUAGES = [ 'French', 'German'
+export const LANGUAGES = [ 'French', 'Turkish', 'Japanese'
+];
+
+export const LEVELS = [ 
+  {
+    value:'A1',
+    name:'A1'
+  },
+  {
+    value:'A2',
+    name:'A2'
+  },
 ];
 
 export const USER_TYPES = [

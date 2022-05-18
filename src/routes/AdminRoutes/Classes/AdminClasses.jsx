@@ -9,7 +9,7 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import AddClassModal from "./AddClassModal";
 import { getAllHomeworks } from "../../../actions/homeworks";
-import { getAllClasses } from "../../../api/classes";
+import { getAllClasses } from "../../../actions/classes";
 
 const columns = [
     { field: "name", headerName: "Name", width: 200 },
