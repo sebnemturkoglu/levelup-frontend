@@ -9,12 +9,16 @@ import { Provider } from "react-redux";
 import { createTheme, ThemeProvider } from '@mui/material';
 import { themeSettings } from './constants/constants';
 import homeworkReducer from './reducers/homeworks';
+import classReducer from './reducers/classes';
+import exerciseReducer from './reducers/exercises';
 
 const theme = createTheme(themeSettings);
 
 const store = configureStore({
   reducer: {
     homeworks: homeworkReducer,
+    classes: classReducer,
+    exercises: exerciseReducer,
   },
 });
 

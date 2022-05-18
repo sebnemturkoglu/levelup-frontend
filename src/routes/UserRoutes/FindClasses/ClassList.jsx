@@ -38,7 +38,7 @@ const ClassList = (props) => {
   //   const [open, setOpen] = React.useState(true);
   //   const dispatch = useDispatch();
 
-  const facilityData = [1, 2, 3, 4];
+  const facilityData = [1];
 
   const [optLevel, setLevelOption] = React.useState("");
   const [optLanguage, setLanguageOption] = React.useState("");
@@ -107,9 +107,9 @@ const ClassList = (props) => {
         aria-labelledby="nested-list-subheader"
 
       >
-        {facilityData.map((center) => {
+        {facilityData.map((center, index) => {
           return (
-            <ClassCard />
+            <ClassCard key={index}/>
           );
         })}
       </List>

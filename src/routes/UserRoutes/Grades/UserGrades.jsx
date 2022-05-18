@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
+import { Button } from "@mui/material";
 
 const columns = [
     { field: "name", headerName: "Name", width: 240 },
@@ -20,10 +21,27 @@ const columns = [
         headerName: "View Assignment",
         width: 1400,
         renderCell: (params) => {
-          return <a>View</a>; // will change after data
+          return <Button>View</Button>; // will change after data
         },
       },
   ];
+
+  const rows = [
+    {
+      id:1,
+      name: 'Assignment 1',
+      class: 'DELF B1',
+      date:'12.05.2022',
+      grade:84.67,
+    },
+    {
+      id:2,
+      name: 'Assignment 1',
+      class: 'German B1',
+      date:'12.05.2022',
+      grade:42.67,
+    }
+  ]
 
 const UserGrades = () => {
 
@@ -31,7 +49,6 @@ const UserGrades = () => {
 
 //   const grades = useSelector((state) => state.grades);
   const [tab, setTab] = useState('exams');
-  const rows = [];
 
 
 //   useEffect(() => {

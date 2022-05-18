@@ -34,11 +34,25 @@ const columns = [
   },
 ];
 
+const rows = [
+  {
+    id:1,
+    studentName: 'Mert Şen',
+    notes:'I want to exercise on my pronunciations',
+    date:'12.05.2022',
+  },
+  {
+    id:2,
+    studentName: 'Yağmur Türkoğlu',
+    notes:'I want to practice for my exam',
+    date:'16.05.2022',
+  },
+]
+
 const NativeRequests = () => {
   //   const dispatch = useDispatch();
 
   //   const speakingExercises = useSelector((state) => state.speakingExercises);
-  const rows = [];
 
 
   //   useEffect(() => {

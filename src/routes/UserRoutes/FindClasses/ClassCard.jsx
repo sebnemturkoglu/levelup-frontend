@@ -28,7 +28,7 @@ export default function ClassCard() {
               >
                 Instructor: Sırma Kuzukulak
               </Typography>
-              <Box>
+              {/* <Box>
               <Typography
                 sx={{ display: 'inline' }}
                 component="span"
@@ -46,7 +46,7 @@ export default function ClassCard() {
                 Intermediate
               </Typography>
               
-              </Box>
+              </Box> */}
             </React.Fragment>
           }
         />

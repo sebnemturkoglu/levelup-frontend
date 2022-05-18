@@ -34,11 +34,25 @@ const columns = [
   },
 ];
 
+const rows = [
+  {
+    id:1,
+    studentName: 'Mert Şen',
+    grade:'-',
+    date:'12.05.2022',
+  },
+  {
+    id:2,
+    studentName: 'Yağmur Türkoğlu',
+    grade:'-',
+    date:'12.05.2022',
+  },
+]
+
 const NativeExercises = () => {
   //   const dispatch = useDispatch();
 
   //   const speakingExercises = useSelector((state) => state.speakingExercises);
-  const rows = [];
   const [optGraded, setGradedOption] = React.useState("Graded");
   const [optTime, setTimeOption] = React.useState("Upcoming");
 

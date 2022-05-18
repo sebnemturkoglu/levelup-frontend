@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Grid, Box, Typography, Button, TextField } from "@mui/material";
 import ClassList from "./ClassList";
 import { useDispatch, useSelector } from "react-redux";
+import { getAllClasses } from "../../../actions/classes";
 
 const courseInfo = {
   name: "Writing for DELF B1",
   description:
-    "Flop over rub against owner because nose is wet yet a nice warm laptop for me to sit on. Avoid the new toy and just play with the box it came in caticus cuteicus plop down in the middle where everybody walks but run at 3am but hiss at vacuum cleaner for i rule on my back you rub my tummy i bite you hard try to jump onto window and fall while scratching at wall.",
+    "This course will make you a god in French",
   duration: "6 weeks",
   requiredBooks: "Français Pour Chats - Un Chat",
   weeklyPlan: [
@@ -23,6 +24,15 @@ const courseInfo = {
   };
 
 const UserFindClasses = () => {
+    const dispatch = useDispatch();
+    // const classes = useSelector((state) => state.classes);
+
+    useEffect(() => {
+      dispatch(getAllClasses());
+    }, [dispatch]);
+
+
+
   return (
     <Box
       sx={{
@@ -59,7 +69,7 @@ const UserFindClasses = () => {
             Weekly Plan:
           </Typography>
           {courseInfo.weeklyPlan.map((item, index) => (
-                <Typography  variant="body2" sx={{ fontSize: "0.8rem" }}>{item}</Typography>
+                <Typography  key={index} variant="body2" sx={{ fontSize: "0.8rem" }}>{item}</Typography>
               ))}
           <Typography variant="body2" my={3} sx={{ fontSize: "0.8rem" }}>
             Course Start Date::<br/> {courseInfo.startDate}
@@ -67,7 +77,7 @@ const UserFindClasses = () => {
           <Typography variant="body2" my={3} sx={{ fontSize: "0.8rem" }}>
             Course End Date:<br/> {courseInfo.endDate}
           </Typography>
-          <Button variant="contained" sx={{color:'#fff'}} >Hello</Button></Box>
+          <Button variant="contained" sx={{color:'#fff'}} >Request Class</Button></Box>
       </Box>
     </Box>
   );

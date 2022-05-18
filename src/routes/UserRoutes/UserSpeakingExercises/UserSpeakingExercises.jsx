@@ -7,6 +7,7 @@ import { Button } from "@mui/material";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
+import { getUserAllExercises, getUserUpcomingExercises, getUserExerciseRequests } from "../../../actions/exercises";
 
 const columns = [
     { field: "insName", headerName: "Instructor Name", width: 240 },
@@ -33,7 +34,7 @@ const columns = [
 
 const UserSpeakingExercises = () => {
 
-//   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 const navigate = useNavigate();
 
 //   const speakingExercises = useSelector((state) => state.speakingExercises);
@@ -41,12 +42,19 @@ const navigate = useNavigate();
   const rows = [];
 
 
-//   useEffect(() => {
-    // dispatch(fetchAllSpekingExercises());
-//   }, [dispatch, dataCourse]);
+  useEffect(() => {
+    dispatch(getUserAllExercises());
+  }, [dispatch]);
 
 const handleTabChange = (event, newValue) => {
     setTab(newValue);
+    if (newValue === 'upcoming') {
+      // dispatch(getUserUpcomingExercises());
+    } else if (newValue === 'all') {
+      dispatch(getUserAllExercises());
+    } else if (newValue === 'reqs') {
+      dispatch(getUserExerciseRequests());
+    }
   };
 
 

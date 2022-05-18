@@ -36,6 +36,29 @@ const columnsClasses = [
   },
 ];
 
+const rowsClasses = [
+  {
+    id:1,
+    name: 'DELF B1',
+    language:'French',
+    level:'Intermediate',
+    courseStart:'12.05.2022',
+    courseEnd:'12.07.2022',
+    capacity:20,
+    enrollment:1
+  },
+  {
+    id:2,
+    name: 'DELF B2',
+    language:'French',
+    level:'Intermediate',
+    courseStart:'13.07.2022',
+    courseEnd:'13.09.2022',
+    capacity:20,
+    enrollment:1
+  },
+]
+
 const columnsRequests = [
   { field: "courseName", headerName: "Requested Course", width: 200 },
   { field: "studentName", headerName: "Student Name", width: 170 },
@@ -64,16 +87,23 @@ const columnsRequests = [
   },
 ];
 
+const rowsRequests = [
+  {
+    id: 1,
+    courseName: 'DELF B2',
+    studentName: 'Arda İbiş',
+    reqDate:'13.07.2022',
+    capacity:20,
+    enrollment: 1,
+  }
+]
+
 const TeacherClasses = () => {
   //   const dispatch = useDispatch();
 
   //   const classes = useSelector((state) => state.classes);
   const [tab, setTab] = useState("classes");
-  const rows = [];
-
-  //   useEffect(() => {
-  // dispatch(fetchAllClasses());
-  //   }, [dispatch, dataCourse]);
+  const [rows, setRows] = useState(rowsClasses);
 
   const handleTabChange = (event, newValue) => {
     console.log(tab);
@@ -102,7 +132,7 @@ const TeacherClasses = () => {
         <div style={{ height: "70vh", width: "100%" }}>
           {tab == "classes" ? (
             <DataGrid
-              rows={rows}
+              rows={rowsClasses}
               columns={columnsClasses}
               pageSize={10}
               rowsPerPageOptions={[10]}
@@ -110,7 +140,7 @@ const TeacherClasses = () => {
             />
           ) : (
             <DataGrid
-              rows={rows}
+              rows={rowsRequests}
               columns={columnsRequests}
               pageSize={10}
               rowsPerPageOptions={[10]}

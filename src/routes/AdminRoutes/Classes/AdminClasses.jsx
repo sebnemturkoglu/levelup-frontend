@@ -9,6 +9,7 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import AddClassModal from "./AddClassModal";
 import { getAllHomeworks } from "../../../actions/homeworks";
+import { getAllClasses } from "../../../api/classes";
 
 const columns = [
     { field: "name", headerName: "Name", width: 200 },
@@ -43,21 +44,15 @@ const columns = [
 const AdminClasses = () => {
 
   const dispatch = useDispatch();
-  const homeworks = useSelector((state) => state.homeworks);
-  console.log(homeworks);
+  const classes = useSelector((state) => state.classes);
 
   useEffect(() => {
-    dispatch(getAllHomeworks());
+    dispatch(getAllClasses());
   }, [dispatch]);
 
   
   const [tab, setTab] = useState('all');
   const rows = [];
-
-
-//   useEffect(() => {
-    // dispatch(fetchAllSpekingExercises());
-//   }, [dispatch, dataCourse]);
 
 const handleTabChange = (event, newValue) => {
     setTab(newValue);
